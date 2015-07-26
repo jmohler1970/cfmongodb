@@ -27,10 +27,10 @@
 
 		For Adobe ColdFusion, we need the CFStrictTyper because Adobe CF will treat numbers and booleans as strings.
 
-		For Railo, we can use the "NoTyper" because Railo treats numbers as numbers and booleans as booleans
+		For Lucee/Railo, we can use the "NoTyper" because Lucee/Railo treats numbers as numbers and booleans as booleans
 	*/
 	public function getDocumentTyperClass(){
-		if( server.coldfusion.productname eq "Railo") return "net.marcesher.NoTyper";
+		if( server.coldfusion.productname eq "Lucee" or server.coldfusion.productname eq "Railo") return "net.marcesher.NoTyper";
 		return "net.marcesher.CFStrictTyper";
 	}
 
@@ -55,12 +55,12 @@
 	function newOperationalDBObject(){
 		return dboFactory.newInstance(variables.operationTyper);
 	}
-	
+
 	/**
 	 * Designate a value to always be evaluated as string
 	 **/
 	function asString(value){
-		if( server.coldfusion.productname eq "Railo") return value;
+		if(server.coldfusion.productname eq "Lucee" or server.coldfusion.productname eq "Railo") return value;
 		return variables.mongoFactory.getObject("net.marcesher.CFStrictTyperString").init(toString(arguments.value));
 	}
 
