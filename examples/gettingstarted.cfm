@@ -42,12 +42,14 @@ with ColdSpring or WireBox.
 	//initialize the core cfmongodb Mongo object
 	mongo = createObject('component','cfmongodb.core.MongoClient').init(mongoConfig);
 
+
 	//we'll create/use a 'people' collection
 	collection = "people";
 	people = mongo.getDBCollection( collection );
 
 	//clear out the collection so we always start fresh, for demo purposes
-	people.remove({});
+	// No we don't. I want to keep any indexes that were created.
+	//people.remove();
 
 
 	//here's how to insert one document
@@ -269,7 +271,7 @@ with ColdSpring or WireBox.
 
 	writeOutput("<h2>Indexes</h2>");
 	//here's how to add indexes onto collections for faster querying
-	people.createIndex( ["NAME"] );
+//	people.createIndex( ["NAME"] );
 //	people.ensureIndex( ["BIKE"] );
 //	people.ensureIndex( ["KIDS.AGE"] );
 	writeDump(var=people.getIndexes(), label="Indexes", expand="false");
