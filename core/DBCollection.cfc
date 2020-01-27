@@ -236,7 +236,7 @@
         var firstOp = toMongo(arguments[1]);
         var additionalOps = [];
 
-		for( var i = 2; i LTE arrayLen(arguments); i++ ){
+		for( var i = 2; i <= arrayLen(arguments); i++ ){
 			arrayAppend(additionalOps, toMongo(arguments[i]) );
 		}
 

@@ -61,7 +61,7 @@
 	//have to use the "ordered" stuff here because if we do straight struct creation, CF will order them
 	//indeterminantly. MongoDB, for whatever reason, uses the first key as the command name (as opposed to "command" = "mapreduce", which would be infinitely more sensible)
 	dbCommand = u.createOrderedDBObject( [ {"mapreduce"="tasks"}, {"map"=map}, {"reduce"=reduce}, {"finalize"=finalize}, {"verbose" = true}, {"out" = "#mapReduceOutputCollectionName#"} ] );
-	result = mongo.getMongoDB().command( dbCommand );
+	result = mongo.getMongoDB().command( u.toMongo(dbCommand) );
 
 	//now use a normal cfmongodb query to search the tmp collection created by mapreduce
 	mrCol = mongo.getDBCollection( mapReduceOutputCollectionName );
