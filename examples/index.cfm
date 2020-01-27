@@ -31,8 +31,8 @@
 
 <h3>Geospacial</h3>
 <ul>
-	<li><a href="geospatial/load.cfm">Load</a></li>
-	<li><a href="geospatial/geo.cfm">Run</a></li>
+	<li><a href="geospatial/load.cfm">Load only</a></li>
+	<li><a href="geospatial/geo.cfm">Load and run</a></li>
 </ul>
 
 

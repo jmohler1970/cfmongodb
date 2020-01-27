@@ -14,3 +14,5 @@
 
 	mongo.close();
 </cfscript>
+
+<h1>Load done!</h1>
