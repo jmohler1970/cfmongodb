@@ -16,6 +16,9 @@
 
 			Then, run  <a href="examples/gettingstarted.cfm">Getting Started</a> to confirm everything works. Inspect the code to see how to use CFMongodDB.
 			<br><br>
+
+			Then, run  <a href="examples/index.cfm">CFMongoDB Examples</a> for lots of examples.
+			<br><br>
 			View other pages in the examples package for additional usage.
 		</p>
 		<p>

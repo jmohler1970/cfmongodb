@@ -199,7 +199,14 @@
 			structDelete(dbCommand.group,"key");
 			dbCommand.group["$keyf"] = trim(keyf);
 		}
-		var result = mongoDB.command( toMongo(dbCommand) );
+		try {
+			var result = mongoDB.command( toMongo(dbCommand) );
+		}
+		catch (any e)	{
+			writedump(dbCommand);
+		}
+
+
 
 		if( NOT result['ok']){
 			throw("Error message: #result['errmsg']#", "GroupException", '', '', serializeJson(result));
@@ -282,7 +289,7 @@
 			] );
 
 		dbCommand.putAll(optionDefaults);
-		var commandResult = mongoDB.command( dbCommand );
+		var commandResult = mongoDB.command( toMongo(dbCommand) );
 
 		if( NOT commandResult['ok'] ){
 			throw("Error Message: #commandResult['errmsg']#:", "MapReduceException", '', '', serializeJson(commandResult));

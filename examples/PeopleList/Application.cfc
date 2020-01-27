@@ -1,8 +1,9 @@
 component{
 	this.name = "cfmongodb_people";
-
+	this.mappings["/cfmongodb"] = getDirectoryFromPath(getCurrentTemplatePath()) & "../../";
 
 	function onApplicationStart(){
+		
 		variables.dbname = "cfmongodb_examples";
 		include "../initMongo.cfm";
 		application.mongo = mongo;

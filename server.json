@@ -1,13 +1,13 @@
 {
-	"name":"CFMongoDB2",
-	"app":{
-	    "cfengine":"adobe@2018",
-	    "libDirs":"java"
-	},
-	"web":{
-	    "http":{
-		   "port":8102
-	    },
-	    "welcomeFiles":"index.cfm"
-	}
- }
+    "name":"CFMongoDB2",
+    "app":{
+        "cfengine":"adobe@2018",
+        "libDirs":"java"
+    },
+    "web":{
+        "http":{
+            "port":8102
+        },
+        "welcomeFiles":"index.cfm"
+    }
+}

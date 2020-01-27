@@ -4,6 +4,7 @@
 <ul>
     <li><a href="gettingstarted.cfm">Getting Started</a></li>
     <li><a href="benchmark.cfm">Benchmarks</a></li>
+    <li><a href="Peoplelist/index.cfm">People List</a></li>
 </ul>
 
 <h3>Aggregation</h3>

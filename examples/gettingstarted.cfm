@@ -15,7 +15,7 @@ However, this example creates a new mongo object, and closes it, every time it i
 <p>
 In your applications, you <b>must</b> create the mongo object as an application-scoped singleton.
 See PeopleList/Application.cfc for an example. See the examples in <b>/examples/ioc</b> for constructing
-with ColdSpring or WireBox.
+with ColdSpring or WireBox. 
 </p>
 <p>If your applications create and close a mongo on every request, performance will suffer significantly.
 </p>

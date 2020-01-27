@@ -1,14 +1,14 @@
-h1. CFMongoDB
+# CFMongoDB
 
 CFMongoDB is both partial wrapper for the MongoDB Java driver and a document-struct mapper for ColdFusion. It attempts to remove the need for constant javacasting in your CFML when working with MongoDB. Additionally, there's a simple DSL which provides ColdFusion developers the ability to easily search MongoDB document collections.
 
 CFMongoDB works with Adobe ColdFusion 9.0.1+ and Railo 3.2+
 
-h2. Notes
+## Notes
 
 As of August 20, 2011, collection.update(), collection.findAndModify(), and "sort" all introduced breaking changes! 
 
-h3. update() and findAndModify()
+### update() and findAndModify()
 
 They no longer wrap documents in {$set} automatically.
 
@@ -18,7 +18,7 @@ old: {newField="hey"}
 
 new: { "$set" = {newField="hey"} }
 
-h3. sort
+### sort
 
 Sort must now be a structure... string support is no longer supported.
 
@@ -26,7 +26,7 @@ old:  find(sort="TS=-1")
 
 new: find(sort={"TS"=-1})
 
-h2. Some Code
+## Some Code
 
 One of the most appealing aspects is that data can be created as a ColdFusion structure and persisted almost verbatim. Example:
 
@@ -64,27 +64,27 @@ for(orc in orcs){
 </cfscript>
 </pre>
 
-h2. More Examples
+## More Examples
 
 See examples/gettingstarted.cfm to start.
 
 Additional examples are in the various subdirectories in examples/
 
-h2. The Wiki
+## The Wiki
 
 Check out the wiki for additional info: "http://wiki.github.com/marcesher/cfmongodb/":http://wiki.github.com/marcesher/cfmongodb/
 
-h2. Getting Help
+## Getting Help
 
 We have a Google group: "http://groups.google.com/group/cfmongodb":http://groups.google.com/group/cfmongodb
 
 Please limit conversations to MongoDB and ColdFusion. General MongoDB questions are best asked on the MongoDB group at "http://groups.google.com/group/mongodb-user":http://groups.google.com/group/mongodb-user
 
-h2. Posting Issues
+## Posting Issues
 
 Post issues to the github issue tracker for the project. Better: post fixes. Best: post fixes with unit tests. 
 
-h2. Getting Involved
+## Getting Involved
 
 Collaboration is welcome. Fork -- Commit -- Request a pull. For bug fixes and feature additions, commits with unit tests are much more likely to be accepted.
 

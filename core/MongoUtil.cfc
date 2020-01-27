@@ -71,26 +71,28 @@
 		return dboBuilderFactory.newInstance();
 	}
 
+	private struct function javaConvert(required struct inData) output="false"	{
+		for(var key in arguments.inData)	{
+			if (getMetadata(arguments.inData[key]).getName() == 'coldfusion.runtime.CFBoolean')	{
+				arguments.inData[key] = javacast("boolean", arguments.inData[key]);
+			}
+
+			if (isStruct(arguments.inData[key]))	{
+				arguments.inData[key] = javaConvert(arguments.inData[key]);
+			}
+		}
+
+		return arguments.inData;
+	}
+
+
 	/**
 	* Converts a ColdFusion structure to a CFBasicDBobject, which  the Java drivers can use
 	*/
 	function toMongo(any data){
 		//for now, assume it's a struct to DBO conversion
 
-		data.each(function(key, value) {
-			if (getMetadata(data[key]).getName() == 'coldfusion.runtime.CFBoolean')	{
-				data[key] = javacast("boolean", data[key]);
-			}
-
-			if (isStruct(data[key]))	{
-				data2 = data[key];
-				data2.each(function(key, value) {
-					if (getMetadata(data2[key]).getName() == 'coldfusion.runtime.CFBoolean')	{
-						data2[key] = javacast("boolean", data2[key]);
-					}
-				});
-			}
-		});
+		data = javaConvert(data);
 
 		if( isCFBasicDBObject(data) ) return data;
 		var dbo = newDBObject();
@@ -158,7 +160,7 @@
 				var value = kv[key];
 			}
 
-			dbObject.append( key, value );
+			dbObject[key] = value;
 		}
 		return dbObject;
 	}
