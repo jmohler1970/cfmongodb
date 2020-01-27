@@ -76,6 +76,22 @@
 	*/
 	function toMongo(any data){
 		//for now, assume it's a struct to DBO conversion
+
+		data.each(function(key, value) {
+			if (getMetadata(data[key]).getName() == 'coldfusion.runtime.CFBoolean')	{
+				data[key] = javacast("boolean", data[key]);
+			}
+
+			if (isStruct(data[key]))	{
+				data2 = data[key];
+				data2.each(function(key, value) {
+					if (getMetadata(data2[key]).getName() == 'coldfusion.runtime.CFBoolean')	{
+						data2[key] = javacast("boolean", data2[key]);
+					}
+				});
+			}
+		});
+
 		if( isCFBasicDBObject(data) ) return data;
 		var dbo = newDBObject();
 		dbo.putAll( data );

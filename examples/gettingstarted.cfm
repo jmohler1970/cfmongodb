@@ -269,9 +269,9 @@ with ColdSpring or WireBox.
 
 	writeOutput("<h2>Indexes</h2>");
 	//here's how to add indexes onto collections for faster querying
-	people.ensureIndex( ["NAME"] );
-	people.ensureIndex( ["BIKE"] );
-	people.ensureIndex( ["KIDS.AGE"] );
+//	people.ensureIndex( ["NAME"] );
+//	people.ensureIndex( ["BIKE"] );
+//	people.ensureIndex( ["KIDS.AGE"] );
 	writeDump(var=people.getIndexes(), label="Indexes", expand="false");
 
 
